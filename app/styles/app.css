@@ -147,7 +147,8 @@ button.reset:hover:not(:has(> *)) {
 .header {
   align-items: center;
   display: flex;
-  /* height: var(--header-height); */
+  justify-content: space-between;
+  height: var(--header-height);
   position: fixed;
   top: 0;
   z-index: 30;
@@ -155,7 +156,7 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .header-menu-mobile-toggle {
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 }
@@ -169,7 +170,7 @@ button.reset:hover:not(:has(> *)) {
 
 .header-menu-desktop {
   display: none;
-  @media (min-width: 1280px) {
+  @media (min-width: 1024px) {
     display: flex;
   }
 }

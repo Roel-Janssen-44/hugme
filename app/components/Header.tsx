@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense, useEffect, useState} from 'react';
 import {Await, NavLink, useAsyncValue} from '@remix-run/react';
 import {
   type CartViewPayload,
@@ -24,10 +24,37 @@ export function Header({
   publicStoreDomain,
 }: HeaderProps) {
   const {shop, menu} = header;
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="header">
+    <header
+      className={`header px-6 fixed flex flex-row flex-wrap top-0 left-0 w-full z-30 ${
+        scrolled ? 'bg-secondary text-primary' : 'bg-transparent text-secondary'
+      }`}
+    >
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+        <img
+          alt="Logo Hugme"
+          src="/images/logo_light.png"
+          className={`w-16 h-auto ${scrolled ? 'hidden' : 'inline'}`}
+        />
+        <img
+          alt="Logo Hugme"
+          src="/images/logo_dark.png"
+          className={`w-16 h-auto p-2 ${scrolled ? 'inline' : 'hidden'}`}
+        />
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -35,7 +62,7 @@ export function Header({
         primaryDomainUrl={header.shop.primaryDomain.url}
         publicStoreDomain={publicStoreDomain}
       />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <HeaderCtas scrolled={scrolled} isLoggedIn={isLoggedIn} cart={cart} />
     </header>
   );
 }
@@ -98,51 +125,63 @@ export function HeaderMenu({
 function HeaderCtas({
   isLoggedIn,
   cart,
-}: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
+  scrolled,
+}: Pick<HeaderProps, 'isLoggedIn' | 'cart'> & {scrolled: boolean}) {
   return (
     <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        <Suspense fallback="Sign in">
-          <Await resolve={isLoggedIn} errorElement="Sign in">
-            {(isLoggedIn) => (isLoggedIn ? 'Account' : 'Sign in')}
-          </Await>
-        </Suspense>
-      </NavLink>
-      <SearchToggle />
-      <CartToggle cart={cart} />
+      <CartToggle cart={cart} scrolled={scrolled} />
+      <SearchToggle scrolled={scrolled} />
+      <HeaderMenuMobileToggle scrolled={scrolled} />
     </nav>
   );
 }
 
-function HeaderMenuMobileToggle() {
+function HeaderMenuMobileToggle({scrolled}: {scrolled: boolean}) {
   const {open} = useAside();
   return (
     <button
-      className="header-menu-mobile-toggle reset"
+      className="header-menu-mobile-toggle reset cursor-pointer w-12 h-12 p-3"
       onClick={() => open('mobile')}
     >
-      <h3>☰</h3>
+      {scrolled ? (
+        <img alt="Menu icon" src="/images/menu_dark.svg" />
+      ) : (
+        <img alt="Menu icon" src="/images/menu.svg" />
+      )}
     </button>
   );
 }
 
-function SearchToggle() {
+function SearchToggle({scrolled}: {scrolled: boolean}) {
   const {open} = useAside();
   return (
-    <button className="reset" onClick={() => open('search')}>
-      Search
+    <button
+      className="header-menu-mobile-toggle reset cursor-pointer w-12 h-12 p-3"
+      onClick={() => open('search')}
+    >
+      {scrolled ? (
+        <img alt="Search icon" src="/images/search_dark.svg" />
+      ) : (
+        <img alt="Search icon" src="/images/search.svg" />
+      )}
     </button>
   );
 }
 
-function CartBadge({count}: {count: number | null}) {
+function CartBadge({
+  count,
+  scrolled,
+}: {
+  count: number | null;
+  scrolled: boolean;
+}) {
   const {open} = useAside();
   const {publish, shop, cart, prevCart} = useAnalytics();
 
   return (
     <a
       href="/cart"
+      className="w-12 h-12 p-3 relative"
       onClick={(e) => {
         e.preventDefault();
         open('cart');
@@ -154,25 +193,39 @@ function CartBadge({count}: {count: number | null}) {
         } as CartViewPayload);
       }}
     >
-      Cart {count === null ? <span>&nbsp;</span> : count}
+      {scrolled ? (
+        <img alt="Shopping cart icon" src="/images/shop_dark.svg" />
+      ) : (
+        <img alt="Shopping cart icon" src="/images/shop.svg" />
+      )}
+      <span
+        className={`absolute right-1 top-1 ${
+          scrolled ? 'text-primary' : 'text-secondary'
+        }`}
+      >
+        {count === null ? <span>&nbsp;</span> : count}
+      </span>
     </a>
   );
 }
 
-function CartToggle({cart}: Pick<HeaderProps, 'cart'>) {
+function CartToggle({
+  cart,
+  scrolled,
+}: Pick<HeaderProps, 'cart'> & {scrolled: boolean}) {
   return (
-    <Suspense fallback={<CartBadge count={null} />}>
+    <Suspense fallback={<CartBadge scrolled={scrolled} count={null} />}>
       <Await resolve={cart}>
-        <CartBanner />
+        <CartBanner scrolled={scrolled} />
       </Await>
     </Suspense>
   );
 }
 
-function CartBanner() {
+function CartBanner({scrolled}: {scrolled: boolean}) {
   const originalCart = useAsyncValue() as CartApiQueryFragment | null;
   const cart = useOptimisticCart(originalCart);
-  return <CartBadge count={cart?.totalQuantity ?? 0} />;
+  return <CartBadge scrolled={scrolled} count={cart?.totalQuantity ?? 0} />;
 }
 
 const FALLBACK_HEADER_MENU = {
