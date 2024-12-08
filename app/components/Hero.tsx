@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <div className="h-[80lvh] mb-[100vh] md:px-6 md:mr-3">
+    <div className="h-[80lvh] mb-20 px-4 md:px-6 md:mr-3">
       <div className="h-[80lvh] relative">
         <picture>
           <source

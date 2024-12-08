@@ -1,7 +1,7 @@
 import {Suspense} from 'react';
 import {Await, NavLink} from '@remix-run/react';
 import type {FooterQuery, HeaderQuery} from 'storefrontapi.generated';
-
+import Button from '~/components/Button';
 interface FooterProps {
   footer: Promise<FooterQuery | null>;
   header: HeaderQuery;
@@ -14,107 +14,145 @@ export function Footer({
   publicStoreDomain,
 }: FooterProps) {
   return (
-    <Suspense>
-      <Await resolve={footerPromise}>
-        {(footer) => (
-          <footer className="footer">
-            {footer?.menu && header.shop.primaryDomain?.url && (
-              <FooterMenu
-                menu={footer.menu}
-                primaryDomainUrl={header.shop.primaryDomain.url}
-                publicStoreDomain={publicStoreDomain}
-              />
-            )}
-          </footer>
-        )}
-      </Await>
-    </Suspense>
+    <div className="pt-20 mt-20 relative overflow-x-hidden">
+      <img
+        src="/images/footer-wave.svg"
+        className="absolute top-0 left-0 scale-[3] origin-top"
+        alt=""
+        aria-hidden
+      />
+
+      <div className="container flex flex-col gap-8 md:flex-row md:flex-wrap md:items-center xl:flex-nowrap xl:items-start">
+        <div className="max-w-md w-full mx-auto md:w-[336px] md:max-w-[336px]">
+          <h4 className="text-3xl text-left lg:text-4xl font-modak mb-0">
+            Pages
+          </h4>
+          <ul>
+            <li>
+              <a
+                className="py-1 block hover:opacity-60 transition-opacity"
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                className="py-1 block hover:opacity-60 transition-opacity"
+                href="/collections/all"
+              >
+                Shop
+              </a>
+            </li>
+            <li>
+              <a
+                className="py-1 block hover:opacity-60 transition-opacity"
+                href="/search"
+              >
+                Search
+              </a>
+            </li>
+            <li>
+              <a
+                className="py-1 block hover:opacity-60 transition-opacity"
+                href="/pages/size-guide"
+              >
+                Size guide
+              </a>
+            </li>
+            <li>
+              <a
+                className="py-1 block hover:opacity-60 transition-opacity"
+                href="/contact"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="max-w-md w-full mx-auto md:w-[336px] md:max-w-[336px] xl:border-l-primary">
+          <h4 className="text-3xl text-left lg:text-4xl font-modak mb-0">
+            Contact
+          </h4>
+          <ul>
+            <li className="py-1">Trade name: Hug_me</li>
+            <li className="flex flex-row items-center gap-1">
+              Email:{' '}
+              <a
+                className="py-1 block hover:opacity-60 underline transition-opacity"
+                href="mailto:hugme@desixury.com"
+              >
+                hugme@desixury.com
+              </a>
+            </li>
+            <li className="py-1">
+              Return address: Heer Ottostraat 33A, 6121 NB Born, Nederland
+            </li>
+            <li className="py-1">Chamber of commerce number: 74022687</li>
+          </ul>
+        </div>
+        <div className="max-w-md w-full mx-auto md:w-[336px] md:max-w-[336px] 2xl:mt-0">
+          <h4 className="text-3xl text-left lg:text-4xl font-modak mb-0">
+            Socials
+          </h4>
+          <ul>
+            <li className="flex flex-row items-center gap-1">
+              Insta:
+              <a
+                className="py-1 block hover:opacity-60 underline transition-opacity"
+                href="instagram.com"
+                target="_blank"
+                rel="nofollow"
+              >
+                @hugme
+              </a>
+            </li>
+            <li className="flex flex-row items-center gap-1">
+              Tiktok:
+              <a
+                className="py-1 block hover:opacity-60 underline transition-opacity"
+                href="instagram.com"
+                target="_blank"
+                rel="nofollow"
+              >
+                @hugme
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t-4 text-center mb-0 mt-6 py-2 border-primary">
+        <ul className="container gap-6 flex flex-row flex-center items-center justify-center">
+          <li>
+            <a
+              className="py-1 block hover:opacity-60 transition-opacity"
+              href="/policies/privacy-policy"
+            >
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              className="py-1 block hover:opacity-60 transition-opacity"
+              href="/policies/refund-policy"
+            >
+              Refund Policy
+            </a>
+          </li>
+          <li>
+            <a
+              className="py-1 block hover:opacity-60 transition-opacity"
+              href="/policies/terms-of-service"
+            >
+              Terms of Service
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 }
-
-function FooterMenu({
-  menu,
-  primaryDomainUrl,
-  publicStoreDomain,
-}: {
-  menu: FooterQuery['menu'];
-  primaryDomainUrl: FooterProps['header']['shop']['primaryDomain']['url'];
-  publicStoreDomain: string;
-}) {
-  return (
-    <nav className="footer-menu" role="navigation">
-      {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
-        if (!item.url) return null;
-        // if the url is internal, we strip the domain
-        const url =
-          item.url.includes('myshopify.com') ||
-          item.url.includes(publicStoreDomain) ||
-          item.url.includes(primaryDomainUrl)
-            ? new URL(item.url).pathname
-            : item.url;
-        const isExternal = !url.startsWith('/');
-        return isExternal ? (
-          <a href={url} key={item.id} rel="noopener noreferrer" target="_blank">
-            {item.title}
-          </a>
-        ) : (
-          <NavLink
-            end
-            key={item.id}
-            prefetch="intent"
-            style={activeLinkStyle}
-            to={url}
-          >
-            {item.title}
-          </NavLink>
-        );
-      })}
-    </nav>
-  );
-}
-
-const FALLBACK_FOOTER_MENU = {
-  id: 'gid://shopify/Menu/199655620664',
-  items: [
-    {
-      id: 'gid://shopify/MenuItem/461633060920',
-      resourceId: 'gid://shopify/ShopPolicy/23358046264',
-      tags: [],
-      title: 'Privacy Policy',
-      type: 'SHOP_POLICY',
-      url: '/policies/privacy-policy',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461633093688',
-      resourceId: 'gid://shopify/ShopPolicy/23358013496',
-      tags: [],
-      title: 'Refund Policy',
-      type: 'SHOP_POLICY',
-      url: '/policies/refund-policy',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461633126456',
-      resourceId: 'gid://shopify/ShopPolicy/23358111800',
-      tags: [],
-      title: 'Shipping Policy',
-      type: 'SHOP_POLICY',
-      url: '/policies/shipping-policy',
-      items: [],
-    },
-    {
-      id: 'gid://shopify/MenuItem/461633159224',
-      resourceId: 'gid://shopify/ShopPolicy/23358079032',
-      tags: [],
-      title: 'Terms of Service',
-      type: 'SHOP_POLICY',
-      url: '/policies/terms-of-service',
-      items: [],
-    },
-  ],
-};
-
 function activeLinkStyle({
   isActive,
   isPending,
