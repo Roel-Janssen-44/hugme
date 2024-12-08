@@ -40,7 +40,7 @@ export function Header({
 
   return (
     <header
-      className={`header px-6 fixed flex flex-row flex-wrap top-0 left-0 w-full z-30 ${
+      className={`header px-6 fixed flex flex-row flex-wrap top-0 left-0 w-full z-30 md:px-20 ${
         scrolled ? 'bg-secondary text-primary' : 'bg-transparent text-secondary'
       }`}
     >
@@ -61,6 +61,7 @@ export function Header({
         viewport="desktop"
         primaryDomainUrl={header.shop.primaryDomain.url}
         publicStoreDomain={publicStoreDomain}
+        scrolled={scrolled}
       />
       <HeaderCtas scrolled={scrolled} isLoggedIn={isLoggedIn} cart={cart} />
     </header>
@@ -72,28 +73,19 @@ export function HeaderMenu({
   primaryDomainUrl,
   viewport,
   publicStoreDomain,
+  scrolled,
 }: {
   menu: HeaderProps['header']['menu'];
   primaryDomainUrl: HeaderProps['header']['shop']['primaryDomain']['url'];
   viewport: Viewport;
   publicStoreDomain: HeaderProps['publicStoreDomain'];
+  scrolled: boolean;
 }) {
   const className = `header-menu-${viewport}`;
   const {close} = useAside();
 
   return (
     <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={close}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
-      )}
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
@@ -106,7 +98,9 @@ export function HeaderMenu({
             : item.url;
         return (
           <NavLink
-            className="header-menu-item"
+            className={`header-menu-item text-primary lg:mx-3 lg:px-2 ${
+              scrolled ? 'lg:text-primary' : 'lg:text-secondary'
+            }`}
             end
             key={item.id}
             onClick={close}
@@ -129,8 +123,8 @@ function HeaderCtas({
 }: Pick<HeaderProps, 'isLoggedIn' | 'cart'> & {scrolled: boolean}) {
   return (
     <nav className="header-ctas" role="navigation">
-      <CartToggle cart={cart} scrolled={scrolled} />
       <SearchToggle scrolled={scrolled} />
+      <CartToggle cart={cart} scrolled={scrolled} />
       <HeaderMenuMobileToggle scrolled={scrolled} />
     </nav>
   );
@@ -156,7 +150,7 @@ function SearchToggle({scrolled}: {scrolled: boolean}) {
   const {open} = useAside();
   return (
     <button
-      className="header-menu-mobile-toggle reset cursor-pointer w-12 h-12 p-3"
+      className=" reset cursor-pointer w-12 h-12 p-3"
       onClick={() => open('search')}
     >
       {scrolled ? (
@@ -279,6 +273,5 @@ function activeLinkStyle({
 }) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'black',
   };
 }
