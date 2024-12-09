@@ -8,7 +8,7 @@
 @theme {
   --color-primary: oklch(45.22% 0.0649 50.39);
   --color-secondary: oklch(87.79% 0.0535 77.23);
-  --color-neon-cyan: oklch(91.3% 0.139 195.8);
+  --color-dark-bg: oklchoklch(79.74% 0.0543 72.5);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
