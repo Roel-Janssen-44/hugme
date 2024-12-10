@@ -10,6 +10,7 @@ export default function Hero() {
             media="(max-width: 1023px)"
           />
           <img
+            loading="eager"
             src={`/images/hero.webp`}
             alt={`Carry the hug`}
             className="object-cover w-full h-full rounded-b-2xl"

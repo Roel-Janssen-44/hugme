@@ -51,7 +51,10 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
-      <p className="container px-4 mx-auto max-w-[767px]">
+      <p
+        style={{maxWidth: 767}}
+        className="container px-4 mx-auto max-w-[767px]"
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -96,7 +99,6 @@ export default function Homepage() {
 
       <FeaturedCollection collection={data.featuredCollection} />
 
-      {/* Subscribe */}
       <Subscribe />
     </div>
   );
@@ -110,7 +112,23 @@ function FeaturedCollection({
   if (!collection) return null;
   const image = collection?.image;
   return (
-    <div className="bg-[#D3B897] w-full py-20 my-20 px-4 mx-auto relative">
+    <div
+      className=" bg-[#D3B897] overflow-hidden w-full py-32 my-32 px-4 mx-auto relative
+                    sm:pt-40 md:mt-12 md:pt-48 lg:pt-56 xl:mt-12 xl:pt-64 2xl:pt-80 
+                    sm:pb-48 sm:mb-24 md:mb-20 md:pb-48 lg:pb-56 lg:mb-12 xl:mb-12 xl:pb-64 2xl:pb-80 2xl:mb-3"
+    >
+      <img
+        src="/wave.svg"
+        alt=""
+        aria-hidden
+        className="big-wave absolute z-0 w-full h-auto top-0 -scale-y-[2] scale-x-[3] left-0 origin-center"
+      />
+      <img
+        src="/wave.svg"
+        alt=""
+        aria-hidden
+        className="big-wave absolute z-0 w-full h-auto -bottom-1 left-0 scale-x-[-3] scale-y-[2]"
+      />
       <div className="container">
         <div
           className={
@@ -143,9 +161,9 @@ function FeaturedCollection({
           {collection.products.edges.map(({node: product}) => (
             <>
               <ProductItem product={product} key={product.id + '1'} />
-              <ProductItem product={product} key={product.id + '2'} />
+              {/* <ProductItem product={product} key={product.id + '2'} />
               <ProductItem product={product} key={product.id + '3'} />
-              <ProductItem product={product} key={product.id + '4'} />
+              <ProductItem product={product} key={product.id + '4'} /> */}
             </>
           ))}
         </div>

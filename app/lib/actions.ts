@@ -23,7 +23,6 @@ export async function signupToNewsletter(email: string) {
     acceptsMarketing: true,
   };
 
-  console.log('input', input);
   const response = await fetch(
     `https://c78ee0-2.myshopify.com/api/2024-07/graphql.json`,
     {

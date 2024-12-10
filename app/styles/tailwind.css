@@ -18,3 +18,9 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@media screen and (min-width: 3500px) {
+  .big-wave {
+    display: none;
+  }
+}

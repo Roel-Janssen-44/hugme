@@ -29,7 +29,6 @@ export default function Homepage() {
     try {
       await signupToNewsletter(email);
       setStatus('success');
-      console.log('Successfully signed up!');
     } catch (error) {
       console.error('Failed to sign up:', error);
       setStatus('error');
@@ -37,7 +36,7 @@ export default function Homepage() {
   };
   return (
     <>
-      <div className="w-full container mt-40 px-4 mx-auto relative">
+      <div className="w-full container px-4 mx-auto relative">
         <div
           className={
             'flex flex-col md:flex-row gap-10 justify-center md:max-w-[1024px] mx-auto'
