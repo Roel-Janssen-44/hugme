@@ -11,11 +11,39 @@ export default async function handleRequest(
   remixContext: EntryContext,
   context: AppLoadContext,
 ) {
+  // const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+  //   shop: {
+  //     checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
+  //     storeDomain: context.env.PUBLIC_STORE_DOMAIN,
+  //   },
+  // });
+
   const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    // https://cdn.shopify.com/shopifycloud/privacy-banner/storefront-banner.js
     shop: {
       checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
+    connectSrc: ['https://c78ee0-2.myshopify.com/api/2024-07/graphql.json'],
+
+    imgSrc: [
+      "'self'",
+      'https://cdn.shopify.com',
+      'data:',
+      'https://rose-historic-gayal-881.mypinata.cloud',
+    ],
+    frameSrc: ['https://www.youtube.com'],
+    fontSrc: [
+      "'self'",
+      'https://fonts.gstatic.com',
+      'https://fonts.googleapis.com',
+    ],
+
+    styleSrc: [
+      "'self'",
+      'https://cdn.shopify.com',
+      'https://fonts.googleapis.com',
+    ],
   });
 
   const body = await renderToReadableStream(

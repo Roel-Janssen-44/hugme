@@ -6,6 +6,7 @@ import type {FeaturedCollectionFragment} from 'storefrontapi.generated';
 import Button from '~/components/Button';
 import Hero from '~/components/Hero';
 import ProductItem from '~/components/ProductItem';
+import Subscribe from '~/components/Subscribe';
 
 export const meta: MetaFunction = () => {
   return [{title: 'Can you hug______me, please? - Hug_me'}];
@@ -50,7 +51,7 @@ export default function Homepage() {
   return (
     <div className="home pb-[100%]">
       <Hero />
-      <p className="px-4 mx-auto max-w-[767px]">
+      <p className="container px-4 mx-auto max-w-[767px]">
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -58,7 +59,7 @@ export default function Homepage() {
       </p>
       <div className="relative py-10 md:py-0 max-w-[1024px] mx-auto">
         <img
-          className="absolute top-16 left-[65%] md:rotate-[-12deg] sm:left-[45%] w-32 h-auto -translate-x-1/2 md:left-56 lg:top-20 lg:left-64"
+          className="absolute top-16 left-[65%] md:rotate-[-12deg] sm:left-[45%] w-32 h-auto -translate-x-1/2 md:left-56 md:top-8 lg:top-20 lg:left-64"
           src="/images/arrow.png"
         />
       </div>
@@ -83,7 +84,7 @@ export default function Homepage() {
             </div>
           </div>
           <div className="md:w-1/2 md:flex-1 relative mr-4 md:pl-4 md:mr-4">
-            <div className="-z-1 rounded-xl w-full md:w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-8 top-4" />
+            <div className="-z-1 rounded-xl w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-8 top-4" />
             <img
               src="/images/origin.JPG"
               alt=""
@@ -96,6 +97,7 @@ export default function Homepage() {
       <FeaturedCollection collection={data.featuredCollection} />
 
       {/* Subscribe */}
+      <Subscribe />
     </div>
   );
 }
@@ -127,7 +129,7 @@ function FeaturedCollection({
             </div>
           </div>
           <div className="md:w-1/2 flex-1 relative mr-4 md:pl-4">
-            <div className="z-1 rounded-xl w-full md:w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-8 top-4" />
+            <div className="z-1 rounded-xl w-[calc(100%)] md:w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-4 top-4 md:left-8" />
             {image?.url && (
               <img
                 src={image.url}
@@ -140,10 +142,10 @@ function FeaturedCollection({
         <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
           {collection.products.edges.map(({node: product}) => (
             <>
-              <ProductItem product={product} key={product.id} />
-              <ProductItem product={product} key={product.id} />
-              <ProductItem product={product} key={product.id} />
-              <ProductItem product={product} key={product.id} />
+              <ProductItem product={product} key={product.id + '1'} />
+              <ProductItem product={product} key={product.id + '2'} />
+              <ProductItem product={product} key={product.id + '3'} />
+              <ProductItem product={product} key={product.id + '4'} />
             </>
           ))}
         </div>
