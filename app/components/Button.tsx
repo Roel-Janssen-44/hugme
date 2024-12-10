@@ -2,14 +2,17 @@ export default function Button({
   link,
   className,
   children,
+  handleClick,
 }: {
   link?: string;
   className?: string;
   children: React.ReactNode;
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <button
       className={`${className} cursor-pointer w-36 h-auto group relative block`}
+      onClick={handleClick}
     >
       {link ? (
         <a href={link}>
