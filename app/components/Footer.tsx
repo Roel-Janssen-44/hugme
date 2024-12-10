@@ -14,10 +14,10 @@ export function Footer({
   publicStoreDomain,
 }: FooterProps) {
   return (
-    <div className="pt-20 mt-20 relative overflow-x-hidden">
+    <footer className="pt-48 mt-24 relative overflow-x-hidden">
       <img
-        src="/images/footer-wave.svg"
-        className="absolute top-0 left-0 scale-[3] origin-top"
+        src="/lijn.svg"
+        className="absolute top-0 left-0 scale-x-[6] scale-y-[3.5] sm:scale-x-[3] sm:scale-y-[2.5] md:scale-y-[2] lg:scale-y-[1.5] lg:scale-x-[2] xl:scale-y-100 origin-top"
         alt=""
         aria-hidden
       />
@@ -120,6 +120,7 @@ export function Footer({
             </li>
           </ul>
         </div>
+        <div className="max-w-md w-full mx-auto md:w-[336px] md:max-w-[336px] 2xl:mt-0 xl:hidden"></div>
       </div>
 
       <div className="border-t-4 text-center mb-0 mt-6 py-2 border-primary">
@@ -150,7 +151,7 @@ export function Footer({
           </li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 function activeLinkStyle({

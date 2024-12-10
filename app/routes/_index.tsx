@@ -49,7 +49,7 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="home pb-[100%]">
+    <div className="home">
       <Hero />
       <p className="container px-4 mx-auto max-w-[767px]">
         Lorem Ipsum is simply dummy text of the printing and typesetting

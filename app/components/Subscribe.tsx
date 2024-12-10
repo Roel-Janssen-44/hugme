@@ -37,10 +37,10 @@ export default function Homepage() {
   };
   return (
     <>
-      <div className="w-full container max-w-[550px] mt-40 px-4 mx-auto relative">
+      <div className="w-full container mt-40 px-4 mx-auto relative">
         <div
           className={
-            'flex flex-col md:flex-row gap-10 justify-center max-w-[1024px] mx-auto'
+            'flex flex-col md:flex-row gap-10 justify-center md:max-w-[1024px] mx-auto'
           }
         >
           <form
@@ -52,7 +52,7 @@ export default function Homepage() {
             </h3>
 
             <input
-              className="text-md border-primary border-4 max-w-[250px] w-full rounded-lg px-3 py-2"
+              className="text-md border-primary border-4 max-w-[280px] w-full rounded-lg px-3 py-2"
               type="email"
               name="email"
               id="email"
@@ -79,9 +79,9 @@ export default function Homepage() {
           <div className="md:w-1/2 md:flex-1 relative mr-4 md:pl-4 md:mr-4">
             <div className="-z-1 rounded-xl w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-8 top-4" />
             <img
-              src="/images/subscribe.webp"
+              src="/images/subscribe.jpg"
               alt=""
-              className="z-20 relative w-full h-full pointer-events-none rounded-lg select-none object-cover"
+              className="z-20 relative object-cover w-full h-auto pointer-events-none rounded-lg select-none"
             />
           </div>
         </div>
