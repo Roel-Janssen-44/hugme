@@ -89,7 +89,7 @@ export default function Homepage() {
           <div className="md:w-1/2 md:flex-1 relative mr-4 md:pl-4 md:mr-4">
             <div className="-z-1 rounded-xl w-[calc(100%-1rem)] h-full border-primary border-4 absolute left-8 top-4" />
             <img
-              src="/images/origin.jpg"
+              src="/images/balcony.jpg"
               alt=""
               className="z-20 relative w-full h-auto pointer-events-none rounded-lg select-none object-cover"
             />
