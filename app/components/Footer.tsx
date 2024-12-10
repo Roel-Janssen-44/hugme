@@ -17,7 +17,7 @@ export function Footer({
     <footer className="pt-48 mt-24 relative overflow-x-hidden">
       <img
         src="/lijn.svg"
-        className="absolute top-0 left-0 scale-x-[6] scale-y-[3.5] sm:scale-x-[3] sm:scale-y-[2.5] md:scale-y-[2] lg:scale-y-[1.5] lg:scale-x-[2] xl:scale-y-100 origin-top"
+        className="-z-1 absolute top-0 left-0 scale-x-[6] scale-y-[3.5] sm:scale-x-[3] sm:scale-y-[2.5] md:scale-y-[2] lg:scale-y-[1.5] lg:scale-x-[2] xl:scale-y-100 origin-top"
         alt=""
         aria-hidden
       />

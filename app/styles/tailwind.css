@@ -5,12 +5,13 @@
 
 @import 'tailwindcss';
 
+/* @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 @theme {
   --color-primary: oklch(45.22% 0.0649 50.39);
   --color-secondary: oklch(87.79% 0.0535 77.23);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
 .font-modak {
   font-family: 'Modak', serif;

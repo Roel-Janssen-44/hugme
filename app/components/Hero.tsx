@@ -6,11 +6,11 @@ export default function Hero() {
       <div className="h-[80lvh] relative">
         <picture>
           <source
-            srcSet={`/images/hero_mobile.JPG`}
+            srcSet={`/images/hero_mobile.webp`}
             media="(max-width: 1023px)"
           />
           <img
-            src={`/images/hero.JPG`}
+            src={`/images/hero.webp`}
             alt={`Carry the hug`}
             className="object-cover w-full h-full rounded-b-2xl"
           />
