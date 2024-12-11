@@ -237,8 +237,7 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .cart-summary-aside {
-  background: white;
-  border-top: 1px solid var(--color-dark);
+  border-top: 1px solid;
   bottom: 0;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -433,7 +432,7 @@ button.reset:hover:not(:has(> *)) {
 */
 .product {
   display: grid;
-  @media (min-width: 45em) {
+  @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 4rem;
   }

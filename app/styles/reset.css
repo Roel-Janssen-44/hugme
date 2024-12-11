@@ -81,20 +81,98 @@ form {
   }
 }
 
-input {
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+    } */
+
+aside input,
+.search input {
   border-radius: 4px;
+  border-width: 2px;
   font-size: 1rem;
   margin-bottom: 0.5rem;
   margin-top: 0.25rem;
   padding: 0.5rem;
 }
 
-ul {
+.policy h1,
+.page h1,
+.policy h2,
+.page h2,
+.policy p,
+.page p {
+  margin: 0;
+  padding: 0;
+}
+
+.policy h1,
+.page h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.policy h2,
+.page h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.policy h4,
+.page h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.policy h5,
+.page h5 {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.policy p,
+.page p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.policy a:hover,
+.page a:hover {
+  cursor: pointer;
+}
+
+.policy ul,
+.page ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-li {
+.policy li,
+.page li {
   margin-bottom: 0.5rem;
-} */
+}
+
+.policy table,
+.page table,
+.policy tr,
+.page tr,
+.policy th,
+.page th,
+.policy td,
+.page td {
+  padding: 4px;
+  border: 1px solid #734b34;
+}

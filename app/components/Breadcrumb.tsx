@@ -17,7 +17,7 @@ export default function BreadcrumbComp() {
 
   if (urlParts[0] == undefined) return null;
   return (
-    <div className="relative h-80 flex justify-center items-center mb-20 bg-gray-100">
+    <div className="relative h-80 flex justify-center items-center mb-20 bg-secondary">
       <div className="z-10 absolute left-0 top-0 w-full h-full">
         <picture>
           <source
@@ -28,11 +28,11 @@ export default function BreadcrumbComp() {
             loading="eager"
             src={`/images/hero.webp`}
             alt={`Carry the hug`}
-            className="object-cover w-full h-full rounded-b-2xl"
+            className="object-cover w-full h-full rounded-b-lg"
           />
         </picture>
       </div>
-      <div className="z-10 w-full h-full absolute left-0 top-0 bg-black opacity-20"></div>
+      <div className="z-10 w-full h-full absolute rounded-lg left-0 top-0 bg-black opacity-20"></div>
       <div className="z-20 text-center text-secondary absolute left-1/2 top-[75%] -translate-x-1/2 -translate-y-1/2">
         <Breadcrumb>
           <BreadcrumbList>

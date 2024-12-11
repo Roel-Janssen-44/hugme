@@ -65,7 +65,7 @@ export default function Homepage() {
             </h3>
 
             <input
-              className="text-md border-primary border-4 max-w-[280px] w-full rounded-lg px-3 py-2"
+              className="text-md border-primary border-2 max-w-[280px] w-full rounded-lg px-3 py-2"
               type="email"
               name="email"
               id="email"

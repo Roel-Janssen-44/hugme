@@ -45,11 +45,13 @@ export default function Policy() {
   const {policy} = useLoaderData<typeof loader>();
 
   return (
-    <div className="policy">
+    <div className="policy container px-4">
       <br />
       <br />
       <div>
-        <Link to="/policies">← Back to Policies</Link>
+        <Link className="font-bold" to="/policies">
+          ← Back to Policies
+        </Link>
       </div>
       <br />
       <h1>{policy.title}</h1>

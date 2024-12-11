@@ -40,8 +40,8 @@ export default function SearchPage() {
   if (type === 'predictive') return null;
 
   return (
-    <div className="search">
-      <h1>Search</h1>
+    <div className="search container pb-20 px-4">
+      <h1 className="text-3xl font-modak mb-3">Search</h1>
       <SearchForm>
         {({inputRef}) => (
           <>
@@ -53,7 +53,9 @@ export default function SearchPage() {
               type="search"
             />
             &nbsp;
-            <button type="submit">Search</button>
+            <button type="submit" className="cursor-pointer">
+              Search
+            </button>
           </>
         )}
       </SearchForm>

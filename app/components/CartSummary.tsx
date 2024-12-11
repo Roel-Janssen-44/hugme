@@ -3,7 +3,7 @@ import type {CartLayout} from '~/components/CartMain';
 import {CartForm, Money, type OptimisticCart} from '@shopify/hydrogen';
 import {useRef} from 'react';
 import {FetcherWithComponents} from '@remix-run/react';
-
+import Button from './Button';
 type CartSummaryProps = {
   cart: OptimisticCart<CartApiQueryFragment | null>;
   layout: CartLayout;
@@ -15,10 +15,10 @@ export function CartSummary({cart, layout}: CartSummaryProps) {
 
   return (
     <div aria-labelledby="cart-summary" className={className}>
-      <h4>Totals</h4>
-      <dl className="cart-subtotal">
-        <dt>Subtotal</dt>
-        <dd>
+      <h4 className="text-2xl font-modak">Totals: </h4>
+      <dl className="cart-subtotal mb-1">
+        <dt>Subtotal: </dt>
+        <dd className="ml-1">
           {cart.cost?.subtotalAmount?.amount ? (
             <Money data={cart.cost?.subtotalAmount} />
           ) : (
@@ -37,9 +37,10 @@ function CartCheckoutActions({checkoutUrl}: {checkoutUrl?: string}) {
 
   return (
     <div>
-      <a href={checkoutUrl} target="_self">
+      <Button link={checkoutUrl}>Checkout</Button>
+      {/* <a href={checkoutUrl} target="_self">
         <p>Continue to Checkout &rarr;</p>
-      </a>
+      </a> */}
       <br />
     </div>
   );
