@@ -13,6 +13,7 @@ import {
   SEARCH_ENDPOINT,
   SearchFormPredictive,
 } from '~/components/SearchFormPredictive';
+import Button from '~/components/Button';
 import {SearchResultsPredictive} from '~/components/SearchResultsPredictive';
 
 interface PageLayoutProps {
@@ -86,9 +87,13 @@ function SearchAside() {
                 ref={inputRef}
                 type="search"
                 list={queriesDatalistId}
+                className="border-2 border-primary px-3 py-2 rounded-md"
               />
               &nbsp;
-              <button onClick={goToSearch}>Search</button>
+              <div className="mt-3 block mb-8">
+                <Button handleClick={goToSearch}>Search</Button>
+              </div>
+              {/* <button onClick={goToSearch}>Search</button> */}
             </>
           )}
         </SearchFormPredictive>

@@ -204,7 +204,7 @@ function SearchResultsPredictiveProducts({
 
   return (
     <div className="predictive-search-result" key="products">
-      <h5>Products</h5>
+      <h5 className="font-modak text-2xl mb-2">Products</h5>
       <ul>
         {products.map((product) => {
           const productUrl = urlWithTrackingParams({
@@ -221,8 +221,9 @@ function SearchResultsPredictiveProducts({
                   <Image
                     alt={image.altText ?? ''}
                     src={image.url}
-                    width={50}
-                    height={50}
+                    width={80}
+                    height={80}
+                    className="rounded"
                   />
                 )}
                 <div>

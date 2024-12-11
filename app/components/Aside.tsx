@@ -59,7 +59,7 @@ export function Aside({
       role="dialog"
     >
       <button className="close-outside" onClick={close} />
-      <aside>
+      <aside className="bg-secondary">
         <header className="border-primary">
           <h3 className="text-2xl font-modak">{heading}</h3>
           <button className="close reset" onClick={close}>

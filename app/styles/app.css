@@ -14,7 +14,6 @@
 * --------------------------------------------------
 */
 aside {
-  background: var(--color-light);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   height: 100vh;
   max-width: var(--aside-width);
@@ -41,10 +40,11 @@ aside header h3 {
 
 aside header .close {
   font-weight: bold;
-  opacity: 0.8;
+  font-size: 32px;
   text-decoration: none;
   transition: all 200ms;
   width: 20px;
+  font-family: 'Modak';
 }
 
 aside header .close:hover {
@@ -271,7 +271,6 @@ button.reset:hover:not(:has(> *)) {
 }
 
 .predictive-search-form {
-  background: var(--color-light);
   position: sticky;
   top: 0;
 }

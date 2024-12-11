@@ -4,6 +4,7 @@ import type {CartApiQueryFragment} from 'storefrontapi.generated';
 import {useAside} from '~/components/Aside';
 import {CartLineItem} from '~/components/CartLineItem';
 import {CartSummary} from './CartSummary';
+import Button from './Button';
 
 export type CartLayout = 'page' | 'aside';
 
@@ -55,14 +56,14 @@ function CartEmpty({
   return (
     <div hidden={hidden}>
       <br />
-      <p>
-        Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
-        started!
-      </p>
+      <p>No items here! Begin exploring and add something you love.</p>
       <br />
-      <Link to="/collections" onClick={close} prefetch="viewport">
+      <Button link="/collections/all" handleClick={close}>
+        Start shopping
+      </Button>
+      {/* <Link to="/collections/all" onClick={close} prefetch="viewport">
         Continue shopping →
-      </Link>
+      </Link> */}
     </div>
   );
 }

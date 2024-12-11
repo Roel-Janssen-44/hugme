@@ -39,7 +39,7 @@ async function loadCriticalData({
   const {handle} = params;
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 4,
+    pageBy: 100,
   });
 
   if (!handle) {
@@ -97,34 +97,29 @@ export default function Collection() {
             ></p>
           </div>
         </div>
-        {/* <ProductGrid collectionProducts={collection.products.nodes} /> */}
         <PaginatedResourceSection
           connection={collection.products}
           resourcesClassName="products-grid"
         >
           {({node: product, index}) => (
             <>
-              <ProductGridItem
-                classes="2xl:w-[500px]"
-                key={product.id}
-                product={product}
-              />
-              <ProductGridItem key={product.id + '1'} product={product} />
-              <ProductGridItem key={product.id + '2'} product={product} />
-              <ProductGridItem key={product.id + '3'} product={product} />
-              <ProductGridItem key={product.id + '4'} product={product} />
-              <ProductGridItem key={product.id + '5'} product={product} />
-              <ProductGridItem key={product.id + '6'} product={product} />
-              <ProductGridItem key={product.id + '7'} product={product} />
-              <ProductGridItem key={product.id + '8'} product={product} />
-              <ProductGridItem key={product.id + '11'} product={product} />
-              <ProductGridItem key={product.id + '12'} product={product} />
-              <ProductGridItem key={product.id + '13'} product={product} />
-              <ProductGridItem key={product.id + '14'} product={product} />
-              <ProductGridItem key={product.id + '15'} product={product} />
-              <ProductGridItem key={product.id + '16'} product={product} />
-              <ProductGridItem key={product.id + '17'} product={product} />
-              <ProductGridItem key={product.id + '18'} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id + index} product={product} />
             </>
           )}
         </PaginatedResourceSection>
@@ -140,111 +135,6 @@ export default function Collection() {
     </div>
   );
 }
-
-// function ProductItem({
-//   product,
-//   loading,
-// }: {
-//   product: ProductItemFragment;
-//   loading?: 'eager' | 'lazy';
-// }) {
-//   const variant = product.variants.nodes[0];
-//   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
-//   return (
-//     <Link
-//       className="product-item"
-//       key={product.id}
-//       prefetch="intent"
-//       to={variantUrl}
-//     >
-//       {product.featuredImage && (
-//         <Image
-//           alt={product.featuredImage.altText || product.title}
-//           aspectRatio="1/1"
-//           data={product.featuredImage}
-//           loading={loading}
-//           sizes="(min-width: 45em) 400px, 100vw"
-//         />
-//       )}
-//       <h4>{product.title}</h4>
-//       <small>
-//         <Money data={product.priceRange.minVariantPrice} />
-//       </small>
-//     </Link>
-//   );
-// }
-
-// const PRODUCT_ITEM_FRAGMENT = `#graphql
-//   fragment MoneyProductItem on MoneyV2 {
-//     amount
-//     currencyCode
-//   }
-//   fragment ProductItem on Product {
-//     id
-//     handle
-//     title
-//     featuredImage {
-//       id
-//       altText
-//       url
-//       width
-//       height
-//     }
-//     priceRange {
-//       minVariantPrice {
-//         ...MoneyProductItem
-//       }
-//       maxVariantPrice {
-//         ...MoneyProductItem
-//       }
-//     }
-//     variants(first: 1) {
-//       nodes {
-//         selectedOptions {
-//           name
-//           value
-//         }
-//       }
-//     }
-//   }
-// ` as const;
-
-// // NOTE: https://shopify.dev/docs/api/storefront/2022-04/objects/collection
-// const COLLECTION_QUERY = `#graphql
-//   ${PRODUCT_ITEM_FRAGMENT}
-//   query Collection(
-//     $handle: String!
-//     $country: CountryCode
-//     $language: LanguageCode
-//     $first: Int
-//     $last: Int
-//     $startCursor: String
-//     $endCursor: String
-//   ) @inContext(country: $country, language: $language) {
-//     collection(handle: $handle) {
-//       id
-//       handle
-//       title
-//       description
-//       products(
-//         first: $first,
-//         last: $last,
-//         before: $startCursor,
-//         after: $endCursor
-//       ) {
-//         nodes {
-//           ...ProductItem
-//         }
-//         pageInfo {
-//           hasPreviousPage
-//           hasNextPage
-//           endCursor
-//           startCursor
-//         }
-//       }
-//     }
-//   }
-// ` as const;
 
 const PRODUCT_ITEM_FRAGMENT = `#graphql
   fragment ProductItem on Product {
@@ -277,7 +167,6 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
   }
 `;
 
-// NOTE: https://shopify.dev/docs/api/storefront/2022-04/objects/collection
 const COLLECTION_QUERY = `#graphql
   ${PRODUCT_ITEM_FRAGMENT}
   query Collection(
