@@ -88,7 +88,7 @@ function CartLineQuantity({line}: {line: CartLine}) {
           aria-label="Decrease quantity"
           disabled={quantity <= 1 || !!isOptimistic}
           name="decrease-quantity"
-          className="w-10 h-10 border-2 border-primary rounded"
+          className="w-10 h-10 border-2 border-primary rounded cursor-pointer"
           value={prevQuantity}
         >
           <span>&#8722; </span>
@@ -102,7 +102,7 @@ function CartLineQuantity({line}: {line: CartLine}) {
           aria-label="Increase quantity"
           name="increase-quantity"
           value={nextQuantity}
-          className="w-10 h-10 border-2 border-primary rounded"
+          className="w-10 h-10 border-2 border-primary rounded cursor-pointer"
           disabled={!!isOptimistic}
         >
           <span>&#43;</span>
