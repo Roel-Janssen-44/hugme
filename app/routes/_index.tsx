@@ -60,9 +60,9 @@ export default function Homepage() {
         since the 1500s, when an unknown printer took a galley of type and
         scrambled it to make a type specimen book.
       </p>
-      <div className="relative py-10 md:py-0 max-w-[1024px] mx-auto">
+      <div className="relative pb-0 md:py-0 max-w-[1024px] mx-auto sm:py-8">
         <img
-          className="absolute top-16 left-[65%] md:rotate-[-12deg] sm:left-[45%] w-32 h-auto -translate-x-1/2 md:left-56 md:top-8 lg:top-20 lg:left-64"
+          className="absolute w-28 top-0 left-[65%] md:rotate-[-12deg] sm:left-[45%] sm:top-12 sm:w-32 h-auto -translate-x-1/2 md:left-56 md:top-8 lg:top-20 lg:left-64"
           src="/images/arrow.png"
         />
       </div>
@@ -161,9 +161,9 @@ function FeaturedCollection({
           {collection.products.edges.map(({node: product}) => (
             <>
               <ProductItem product={product} key={product.id + '1'} />
-              {/* <ProductItem product={product} key={product.id + '2'} />
+              <ProductItem product={product} key={product.id + '2'} />
               <ProductItem product={product} key={product.id + '3'} />
-              <ProductItem product={product} key={product.id + '4'} /> */}
+              <ProductItem product={product} key={product.id + '4'} />
             </>
           ))}
         </div>

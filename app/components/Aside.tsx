@@ -60,8 +60,8 @@ export function Aside({
     >
       <button className="close-outside" onClick={close} />
       <aside>
-        <header>
-          <h3>{heading}</h3>
+        <header className="border-primary">
+          <h3 className="text-2xl font-modak">{heading}</h3>
           <button className="close reset" onClick={close}>
             &times;
           </button>

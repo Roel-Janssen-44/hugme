@@ -17,6 +17,7 @@ import appStyles from '~/styles/app.css?url';
 import tailwindCss from './styles/tailwind.css?url';
 import {PageLayout} from '~/components/PageLayout';
 import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
+import Breadcrumb from './components/Breadcrumb';
 
 export type RootLoader = typeof loader;
 
@@ -144,6 +145,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
         <Links />
       </head>
       <body className="bg-secondary text-primary">
+        <Breadcrumb />
         {data ? (
           <Analytics.Provider
             cart={data.cart}

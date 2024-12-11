@@ -50,6 +50,20 @@ export default function Homepage() {
               subscribe to become a vip
             </h3>
 
+            <h3
+              className={`mb-3 ${
+                status == 'success'
+                  ? 'text-green-600'
+                  : status == 'error'
+                  ? 'text-red-600'
+                  : 'text-primary'
+              }`}
+            >
+              {status == 'loading' && 'Loading...'}
+              {status == 'success' && 'Thank you for subscribing!'}
+              {status == 'error' && 'Failed to subscribe. Please try again.'}
+            </h3>
+
             <input
               className="text-md border-primary border-4 max-w-[280px] w-full rounded-lg px-3 py-2"
               type="email"
