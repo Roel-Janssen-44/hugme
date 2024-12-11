@@ -181,8 +181,8 @@ export function ErrorBoundary() {
   }
 
   return (
-    <div className="route-error">
-      <h1>Oops</h1>
+    <div className="route-error container px-4">
+      <h1 className="font-modak text-3xl">Oops</h1>
       <h2>{errorStatus}</h2>
       {errorMessage && (
         <fieldset>
