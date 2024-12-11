@@ -103,23 +103,7 @@ export default function Collection() {
         >
           {({node: product, index}) => (
             <>
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
+              <ProductGridItem key={product.id} product={product} />
             </>
           )}
         </PaginatedResourceSection>
