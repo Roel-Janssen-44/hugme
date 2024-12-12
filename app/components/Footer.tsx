@@ -55,14 +55,6 @@ export function Footer({
             <li>
               <a
                 className="py-1 block hover:opacity-60 transition-opacity"
-                href="/pages/size-guide"
-              >
-                Size guide
-              </a>
-            </li>
-            <li>
-              <a
-                className="py-1 block hover:opacity-60 transition-opacity"
                 href="/contact"
               >
                 Contact
@@ -97,10 +89,10 @@ export function Footer({
           </h4>
           <ul>
             <li className="flex flex-row items-center gap-1">
-              Insta:
+              Instagram:
               <a
                 className="py-1 block hover:opacity-60 underline transition-opacity"
-                href="instagram.com"
+                href="https://www.instagram.com/hug___me/profilecard/?igsh=a2Zsanh2dnZ2ZmE0"
                 target="_blank"
                 rel="nofollow"
               >
@@ -111,7 +103,7 @@ export function Footer({
               Tiktok:
               <a
                 className="py-1 block hover:opacity-60 underline transition-opacity"
-                href="instagram.com"
+                href="https://www.tiktok.com/@hug__me?_t=ZN-8s8CvNYeojK&_r=1"
                 target="_blank"
                 rel="nofollow"
               >

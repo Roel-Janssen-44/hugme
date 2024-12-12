@@ -160,10 +160,10 @@ function FeaturedCollection({
         <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
           {collection.products.edges.map(({node: product}) => (
             <>
-              <ProductItem product={product} key={product.id + '1'} />
-              <ProductItem product={product} key={product.id + '2'} />
+              <ProductItem product={product} key={product.id} />
+              {/* <ProductItem product={product} key={product.id + '2'} />
               <ProductItem product={product} key={product.id + '3'} />
-              <ProductItem product={product} key={product.id + '4'} />
+              <ProductItem product={product} key={product.id + '4'} /> */}
             </>
           ))}
         </div>

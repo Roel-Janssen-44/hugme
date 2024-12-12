@@ -24,7 +24,10 @@ export default async function handleRequest(
       checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
-    connectSrc: ['https://c78ee0-2.myshopify.com/api/2024-07/graphql.json'],
+    connectSrc: [
+      'https://c78ee0-2.myshopify.com/api/2024-07/graphql.json',
+      'https://api.web3forms.com/submit',
+    ],
 
     imgSrc: [
       "'self'",
