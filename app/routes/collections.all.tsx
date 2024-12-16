@@ -6,8 +6,14 @@ import {useVariantUrl} from '~/lib/variants';
 import {PaginatedResourceSection} from '~/components/PaginatedResourceSection';
 import ProductGridItem from '~/components/ProductGridItem';
 
-export const meta: MetaFunction<typeof loader> = () => {
-  return [{title: `Hydrogen | Products`}];
+export const meta: MetaFunction = () => {
+  return [
+    {title: 'All products - Hug_me'},
+    {
+      description:
+        'Emerged from the aesthetic need for a cool and slightly sarcastic community. Besides the so-called hug, it is important that we have peace in this terrible world',
+    },
+  ];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
@@ -60,22 +66,6 @@ export default function Collection() {
         >
           {({node: product, index}) => (
             <>
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
-              <ProductGridItem key={product.id + index} product={product} />
               <ProductGridItem key={product.id + index} product={product} />
             </>
           )}

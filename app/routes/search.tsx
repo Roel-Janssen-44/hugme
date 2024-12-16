@@ -14,7 +14,13 @@ import {
 } from '~/lib/search';
 
 export const meta: MetaFunction = () => {
-  return [{title: `Hydrogen | Search`}];
+  return [
+    {title: 'Search - Hug_me'},
+    {
+      description:
+        'Emerged from the aesthetic need for a cool and slightly sarcastic community. Besides the so-called hug, it is important that we have peace in this terrible world',
+    },
+  ];
 };
 
 export async function loader({request, context}: LoaderFunctionArgs) {

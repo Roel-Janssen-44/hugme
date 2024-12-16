@@ -9,7 +9,13 @@ import ProductItem from '~/components/ProductItem';
 import Subscribe from '~/components/Subscribe';
 
 export const meta: MetaFunction = () => {
-  return [{title: 'Can you hug______me, please? - Hug_me'}];
+  return [
+    {title: 'Can you hug______me, please? - Hug_me'},
+    {
+      description:
+        'Emerged from the aesthetic need for a cool and slightly sarcastic community. Besides the so-called hug, it is important that we have peace in this terrible world',
+    },
+  ];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
@@ -55,10 +61,9 @@ export default function Homepage() {
         style={{maxWidth: 767}}
         className="container px-4 mx-auto max-w-[767px]"
       >
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.
+        Emerged from the aesthetic need for a cool and slightly sarcastic
+        community. Besides the so-called hug, it is important that we have peace
+        in this terrible world
       </p>
       <div className="relative pb-0 md:py-0 max-w-[1024px] mx-auto sm:py-8">
         <img
@@ -75,12 +80,11 @@ export default function Homepage() {
         >
           <div className="md:w-1/2 md:flex-1 md:pr-4 flex-col flex gap-4 justify-center">
             <h3 className="text-4xl text-left lg:text-5xl font-modak mb-0">
-              Origin
+              A huge story
             </h3>
-            <p className="text-md mx-auto">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              and scrambled it to make a type specimen book.
+
+            <p className="text-md">
+              Tap to see what&rsquo;s the origin of this beautiful brand
             </p>
             <div className="mb-4 md:mb-0">
               <Button link="/collections/all">See more</Button>

@@ -47,7 +47,7 @@ export default function Homepage() {
             onSubmit={handleSubmit}
           >
             <h3 className="text-4xl text-left lg:text-5xl font-modak mb-0">
-              subscribe to become a vip
+              subscribe to become a hugger
             </h3>
 
             <h3

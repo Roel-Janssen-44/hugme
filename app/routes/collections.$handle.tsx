@@ -14,7 +14,10 @@ import ProductGridItem from '~/components/ProductGridItem';
 // import {useState} from 'react';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  return [
+    {title: `${data?.collection.title ?? 'Collection'} - Hugme`},
+    {description: `${data?.collection.description ?? ''} - Hugme`},
+  ];
 };
 
 export async function loader(args: LoaderFunctionArgs) {

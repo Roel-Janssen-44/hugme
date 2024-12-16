@@ -19,11 +19,11 @@ export default function Hero() {
         <div className="-z-1 rounded-3xl w-[calc(100%-32px)] md:w-full h-[calc(100%+64px)] border-primary border-4 absolute left-4 -top-12" />
         <div className="rounded-b-2xl bg-black absolute top-0 left-0 w-full h-full z-10 opacity-20" />
         <div className="z-20 container max-w-2xl text-center xl:max-w-3xl 2xl:max-w-4xl text-secondary mt-14 w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <h3 className="text-6xl lg:text-8xl font-modak mx-auto mb-4">
-            Carry the hug
+          <h3 className="text-4xl sm:max-w-[480px] md:max-w-[640px] md:text-5xl lg:text-6xl xl:max-w-none font-modak mx-auto mb-4">
+            PLEASE, CAN YOU HUG____ME?
           </h3>
           <h4 className="text-lg lg:text-2xl mx-auto">
-            Because a hug is always in style
+            Carry the hug, because a hug is always in style.
           </h4>
         </div>
       </div>
