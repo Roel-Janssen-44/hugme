@@ -57,7 +57,7 @@ export default function Page() {
   const {page} = useLoaderData<typeof loader>();
 
   return (
-    <div className="page container px-4">
+    <div style={{maxWidth: 1024}} className="page container px-4 mx-auto">
       <header>
         <h1
           style={{marginBottom: 0, fontSize: 36, fontWeight: 400}}
