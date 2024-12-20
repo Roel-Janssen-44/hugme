@@ -58,16 +58,17 @@ export default function Homepage() {
     <div className="home">
       <Hero />
       <p
-        style={{maxWidth: 767}}
-        className="container px-4 mx-auto max-w-[767px]"
+        // style={{maxWidth: 767}}
+        id="home-paragraph"
+        className="container px-4 mx-auto md:max-w-[767px]"
       >
         Emerged from the aesthetic need for a cool and slightly sarcastic
         community. Besides the so-called hug, it is important that we have peace
         in this terrible world
       </p>
-      <div className="relative pb-0 md:py-0 max-w-[1024px] mx-auto sm:py-8">
+      <div className="container px-4 relative pb-0 max-w-[1280px] mx-auto sm:py-2 md:py-4 xl:py-0">
         <img
-          className="absolute w-28 top-0 left-[65%] md:rotate-[-12deg] sm:left-[45%] sm:top-12 sm:w-32 h-auto -translate-x-1/2 md:left-56 md:top-8 lg:top-20 lg:left-64"
+          className="absolute w-28 top-0 left-[65%] md:rotate-[-12deg] sm:left-[55%] sm:top-2 sm:w-32 h-auto -translate-x-1/2 md:left-80 md:top-4 lg:top-8 lg:left-96 xl:left-[35%] xl:top-20"
           src="/images/arrow.png"
         />
       </div>
@@ -75,19 +76,43 @@ export default function Homepage() {
       <div className="w-full container mt-40 px-4 mx-auto relative">
         <div
           className={
-            'flex flex-col md:flex-row gap-10 justify-center max-w-[1024px] mx-auto'
+            'flex flex-col md:flex-row gap-10 justify-center max-w-[1280px] mx-auto'
           }
         >
           <div className="md:w-1/2 md:flex-1 md:pr-4 flex-col flex gap-4 justify-center">
             <h3 className="text-4xl text-left lg:text-5xl font-modak mb-0">
-              A huge story
+              A hug story
             </h3>
 
             <p className="text-md">
-              Tap to see what&rsquo;s the origin of this beautiful brand
+              In today&rsquo;s society, we see an exciting aesthetic
+              amalgamation of diverse trends that enrich our world. From the
+              vibrant ceramics of Portugal to the handwoven textiles of Asia,
+              each carefully selected product ensures the highest quality for
+              our community of huggers.
+            </p>
+            <p className="text-md">
+              Our mission is to create a platform that celebrates the beauty of
+              different cultures while fostering connection and community. Each
+              item tells a story, embodying love and artisanal skills passed
+              down through generations.
+            </p>
+            <p className="text-md">
+              With our Dutch roots, we aim to spread a message of peace and
+              inclusivity worldwide. By collaborating with local artisans, we
+              support sustainable practices and contribute to a more equitable
+              world.
+            </p>
+            <p className="text-md">
+              We invite our huggers community to make conscious choices and
+              appreciate the stories behind the products. Together, we can
+              create a positive impact and build a community committed to
+              quality and respect for cultural traditions. Explore our
+              collection and join our mission—together, we can make the world a
+              brighter place.
             </p>
             <div className="mb-4 md:mb-0">
-              <Button link="/collections/all">See more</Button>
+              <Button link="/pages/a-hug-story">See more</Button>
             </div>
           </div>
           <div className="md:w-1/2 md:flex-1 relative mr-4 md:pl-4 md:mr-4">
@@ -163,13 +188,17 @@ function FeaturedCollection({
         </div>
         <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
           {collection.products.edges.map(({node: product}) => (
-            <>
-              <ProductItem product={product} key={product.id} />
-              {/* <ProductItem product={product} key={product.id + '2'} />
-              <ProductItem product={product} key={product.id + '3'} />
-              <ProductItem product={product} key={product.id + '4'} /> */}
-            </>
+            <ProductItem product={product} key={product.id} />
           ))}
+          {/* {collection.products.edges.map(({node: product}) => (
+            <ProductItem product={product} key={product.id} />
+          ))}
+          {collection.products.edges.map(({node: product}) => (
+            <ProductItem product={product} key={product.id} />
+          ))}
+          {collection.products.edges.map(({node: product}) => (
+            <ProductItem product={product} key={product.id} />
+          ))} */}
         </div>
       </div>
     </div>

@@ -24,3 +24,9 @@
     display: none;
   }
 }
+
+@media screen and (min-width: 768px) {
+  #home-paragraph {
+    max-width: 767px;
+  }
+}

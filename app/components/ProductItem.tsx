@@ -5,7 +5,7 @@ import {Image, Money} from '@shopify/hydrogen';
 export default function ProductItem({product}: {product: any}) {
   return (
     <Link
-      className="product-item text-center w-full max-w-full sm:max-w-[268px] md:max-w-[332px] lg:max-w-[210px] xl:max-w-[274px]"
+      className="product-item mb-8 relative text-center w-full max-w-full sm:max-w-[268px] md:max-w-[332px] lg:max-w-[210px] xl:max-w-[274px]"
       key={product.id}
       prefetch="intent"
       to={`/products/${product.handle}`}

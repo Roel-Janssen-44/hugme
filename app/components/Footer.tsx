@@ -92,22 +92,22 @@ export function Footer({
               Instagram:
               <a
                 className="py-1 block hover:opacity-60 underline transition-opacity"
-                href="https://www.instagram.com/hug___me/profilecard/?igsh=a2Zsanh2dnZ2ZmE0"
+                href="https://www.instagram.com/hug_________me/profilecard/?igsh=a2Zsanh2dnZ2ZmE0"
                 target="_blank"
                 rel="nofollow"
               >
-                @hugme
+                @Hug_me
               </a>
             </li>
             <li className="flex flex-row items-center gap-1">
               Tiktok:
               <a
                 className="py-1 block hover:opacity-60 underline transition-opacity"
-                href="https://www.tiktok.com/@hug__me?_t=ZN-8s8CvNYeojK&_r=1"
+                href="https://www.tiktok.com/@hug________me?_t=ZN-8sB1UpDJgpy&_r=1"
                 target="_blank"
                 rel="nofollow"
               >
-                @hugme
+                @Hug_me
               </a>
             </li>
           </ul>
