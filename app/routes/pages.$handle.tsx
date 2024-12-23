@@ -1,5 +1,6 @@
 import {defer, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {useLoaderData, type MetaFunction} from '@remix-run/react';
+import {Suspense} from 'react';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [
@@ -66,7 +67,9 @@ export default function Page() {
           {page.title}
         </h1>
       </header>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
       <main dangerouslySetInnerHTML={{__html: page.body}} />
+      {/* </Suspense> */}
     </div>
   );
 }
