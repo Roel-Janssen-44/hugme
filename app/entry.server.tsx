@@ -52,6 +52,7 @@ export default async function handleRequest(
       'https://cdn.shopify.com',
       'https://www.instagram.com',
       'https://www.embedista.com',
+      'http://www.instagram.com/embed.js',
     ],
   });
 

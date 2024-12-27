@@ -148,12 +148,11 @@ export default function FeaturedCollection({}) {
         {sendStatus}
       </p>
       <form ref={form}>
-        {/* <input
+        <input
           type="hidden"
           name="access_key"
-          // Todo - add access key
-        //   value="###################"
-        /> */}
+          value="9b13768c-5b49-42c6-86b8-571e6541ce6f"
+        />
         <div className="w-full md:top-20 max-w-md mx-auto sm:max-w-none">
           <div className="relative mb-8 w-10/12 sm:w-8/12 mx-auto md:ml-0 md:w-full lg:w-[47.5%] lg:mr-[2.5%] lg:inline-block">
             <input
