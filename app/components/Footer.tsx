@@ -92,11 +92,11 @@ export function Footer({
               Instagram:
               <a
                 className="py-1 block hover:opacity-60 underline transition-opacity"
-                href="https://www.instagram.com/hug_________me/profilecard/?igsh=a2Zsanh2dnZ2ZmE0"
+                href="https://www.instagram.com/fits4thescene/"
                 target="_blank"
                 rel="nofollow"
               >
-                @Hug_me
+                @hug_________me
               </a>
             </li>
             <li className="flex flex-row items-center gap-1">
@@ -107,7 +107,7 @@ export function Footer({
                 target="_blank"
                 rel="nofollow"
               >
-                @Hug_me
+                @hug_________me
               </a>
             </li>
           </ul>
