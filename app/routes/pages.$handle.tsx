@@ -68,7 +68,7 @@ export default function Page() {
         </h1>
       </header>
       {/* <Suspense fallback={<div>Loading...</div>}> */}
-      <main dangerouslySetInnerHTML={{__html: page.body}} />
+      <div dangerouslySetInnerHTML={{__html: page.body}} />
       {/* </Suspense> */}
     </div>
   );

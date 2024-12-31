@@ -35,7 +35,11 @@ export default async function handleRequest(
       'data:',
       'https://rose-historic-gayal-881.mypinata.cloud',
     ],
-    frameSrc: ['https://www.youtube.com', 'https://www.instagram.com/'],
+    frameSrc: [
+      'https://www.youtube.com',
+      'https://www.instagram.com/',
+      'http://lightwidget.com/',
+    ],
     fontSrc: [
       "'self'",
       'https://fonts.gstatic.com',
@@ -51,7 +55,6 @@ export default async function handleRequest(
       "'self'",
       'https://cdn.shopify.com',
       'https://www.instagram.com',
-      'https://www.embedista.com',
       'http://www.instagram.com/embed.js',
     ],
   });
