@@ -57,7 +57,7 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero />
-      <p
+      {/* <p
         // style={{maxWidth: 767}}
         id="home-paragraph"
         className="container px-4 mx-auto md:max-w-[767px]"
@@ -65,15 +65,15 @@ export default function Homepage() {
         Emerged from the aesthetic need for a cool and slightly sarcastic
         community. Besides the so-called hug, it is important that we have peace
         in this terrible world
-      </p>
-      <div className="container px-4 relative pb-0 max-w-[1280px] mx-auto sm:py-2 md:py-4 xl:py-0">
+      </p> */}
+      <div className="container px-4 relative pb-0 max-w-[1280px] mx-auto sm:py-0.5 xl:p-0">
         <img
-          className="absolute w-28 top-0 left-[65%] md:rotate-[-12deg] sm:left-[55%] sm:top-2 sm:w-32 h-auto -translate-x-1/2 md:left-80 md:top-4 lg:top-8 lg:left-96 xl:left-[35%] xl:top-20"
+          className="absolute w-28 -top-10 left-[70%] md:rotate-[-12deg] sm:left-[55%] sm:-top-6 md:-top-8 sm:w-32 h-auto -translate-x-1/2 md:left-80 lg:-top-6 lg:left-96 xl:left-[35%] xl:-top-4"
           src="/images/arrow.png"
         />
       </div>
 
-      <div className="w-full container mt-40 px-4 mx-auto relative">
+      <div className="w-full container mt-40 px-4 mx-auto relative xl:mt-32">
         <div
           className={
             'flex flex-col md:flex-row gap-10 justify-center max-w-[1280px] mx-auto'
