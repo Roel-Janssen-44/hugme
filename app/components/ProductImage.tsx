@@ -13,7 +13,7 @@ export function ProductImage({
     <div className="product-image mb-8 md:mb-0">
       <Image
         alt={image.altText || 'Product Image'}
-        aspectRatio="1/1"
+        // aspectRatio="1/1"
         data={image}
         key={image.id}
         className="rounded-lg"
