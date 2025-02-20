@@ -1,12 +1,13 @@
 import {defer, type LoaderFunctionArgs} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link, type MetaFunction} from '@remix-run/react';
-import {Suspense} from 'react';
+import React, {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import type {FeaturedCollectionFragment} from 'storefrontapi.generated';
 import Button from '~/components/Button';
 import Hero from '~/components/Hero';
 import ProductItem from '~/components/ProductItem';
 import Subscribe from '~/components/Subscribe';
+import Slider from '~/components/Slider';
 
 export const meta: MetaFunction = () => {
   return [
@@ -58,21 +59,21 @@ export default function Homepage() {
     <div className="home relative">
       <Hero />
 
-      {/* <div className="container px-4 relative pb-0 max-w-[1280px] mx-auto sm:py-0.5 xl:p-0">
+      <div className="hidden md:block container px-4 relative pb-0 max-w-[1280px] mx-auto sm:py-0.5 xl:p-0">
         <img
-          className="absolute w-28 -top-10 left-[70%] md:rotate-[-12deg] sm:left-[55%] sm:-top-6 md:-top-8 sm:w-32 h-auto -translate-x-1/2 md:left-80 lg:-top-6 lg:left-96 xl:left-[35%] xl:-top-4"
+          className="absolute w-28 -top-10 left-[70%] md:rotate-[-12deg] sm:left-[55%] sm:-top-6 md:-top-8 sm:w-32 h-auto -translate-x-1/2 md:left-80 lg:-top-6 lg:left-[380px] xl:left-[35%] xl:-top-4"
           src="/images/arrow.png"
         />
-      </div> */}
+      </div>
 
-      <div className="mt-20">
+      <div className="mt-20 xl:mt-40">
         <FeaturedCollection collection={data.featuredCollection} />
       </div>
 
       <div
-        className=" bg-[#D3B897] overflow-hidden w-full py-32 my-32 px-4 mx-auto relative
-                    sm:pt-40 md:mt-12 md:pt-48 lg:pt-56 xl:mt-12 xl:pt-64 2xl:pt-80 
-                    sm:pb-48 sm:mb-24 md:mb-20 md:pb-48 lg:pb-56 lg:mb-12 xl:mb-12 xl:pb-64 2xl:pb-80 2xl:mb-3"
+        className=" bg-[#D3B897] overflow-hidden w-full pb-40 pt-4 mt-6 mb-32 px-4 mx-auto relative
+                    sm:pt-10 md:mt-12 md:pt-16 lg:pt-32 xl:mt-12 xl:pt-32 2xl:pt-64 
+                    sm:pb-48 sm:mb-24 md:mb-24 md:pb-48 lg:pb-56 lg:mb-12 xl:mb-12 xl:pb-64 2xl:pb-80 2xl:mb-3"
       >
         <img
           src="/wave.svg"
@@ -146,6 +147,14 @@ export default function Homepage() {
   );
 }
 
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
 function FeaturedCollection({
   collection,
 }: {
@@ -161,7 +170,7 @@ function FeaturedCollection({
         }
       >
         <div className="md:w-1/2 md:pr-4 flex-1 flex-col flex gap-4 justify-center">
-          <h3 className="text-4xl text-left lg:text-5xl font-modak mb-0">
+          <h3 className="text-4xl xl:max-w-[400px] lg:max-w-[300px] text-left lg:text-5xl font-modak mb-0">
             {collection.title}
           </h3>
           <p className="text-md mx-auto">{collection.description}</p>
@@ -180,19 +189,23 @@ function FeaturedCollection({
           )}
         </div>
       </div>
+      {/* <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
+        <Slider items={collection.products.edges} />
+      </div> */}
+
       <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
         {collection.products.edges.map(({node: product}) => (
           <ProductItem product={product} key={product.id} />
         ))}
         {/* {collection.products.edges.map(({node: product}) => (
-            <ProductItem product={product} key={product.id} />
-          ))}
-          {collection.products.edges.map(({node: product}) => (
-            <ProductItem product={product} key={product.id} />
-          ))}
-          {collection.products.edges.map(({node: product}) => (
-            <ProductItem product={product} key={product.id} />
-          ))} */}
+          <ProductItem product={product} key={product.id} />
+        ))}
+        {collection.products.edges.map(({node: product}) => (
+          <ProductItem product={product} key={product.id} />
+        ))}
+        {collection.products.edges.map(({node: product}) => (
+          <ProductItem product={product} key={product.id} />
+        ))} */}
       </div>
     </div>
   );
