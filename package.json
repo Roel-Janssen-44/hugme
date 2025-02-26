@@ -41,6 +41,7 @@
     "react-dom": "^18.2.0",
     "react-player": "^2.16.0",
     "sanitize-html-react": "^1.13.0",
+    "swiper": "^11.2.4",
     "tailwind-merge": "^2.5.4",
     "vaul": "^1.1.1"
   },

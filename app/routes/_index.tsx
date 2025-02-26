@@ -190,14 +190,21 @@ function FeaturedCollection({
         </div>
       </div>
       {/* <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
-        <Slider items={collection.products.edges} />
+        <div> */}
+      <div>
+        {collection?.products?.edges && (
+          <Slider items={collection.products.edges} />
+        )}
+      </div>
+
+      {/* </div>
       </div> */}
 
-      <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10">
-        {collection.products.edges.map(({node: product}) => (
+      {/* <div className="flex max-w-[1280px] mx-auto flex-col sm:justify-between flex-wrap sm:flex-row mt-20 gap-10"> */}
+      {/* {collection.products.edges.map(({node: product}) => (
           <ProductItem product={product} key={product.id} />
-        ))}
-        {/* {collection.products.edges.map(({node: product}) => (
+        ))} */}
+      {/* {collection.products.edges.map(({node: product}) => (
           <ProductItem product={product} key={product.id} />
         ))}
         {collection.products.edges.map(({node: product}) => (
@@ -206,7 +213,7 @@ function FeaturedCollection({
         {collection.products.edges.map(({node: product}) => (
           <ProductItem product={product} key={product.id} />
         ))} */}
-      </div>
+      {/* </div> */}
     </div>
   );
 }
