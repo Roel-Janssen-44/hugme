@@ -12,8 +12,8 @@ export default function ProductGridItem({product}: {product: any}) {
     >
       <div className="relative block mx-auto">
         <img
-          src={product?.images?.nodes[0].url}
-          alt={product?.images?.nodes[0].altText}
+          src={product?.images?.nodes[0]?.url}
+          alt={product?.images?.nodes[0]?.altText}
           className={`w-full h-full object-cover rounded-lg`}
         />
       </div>
