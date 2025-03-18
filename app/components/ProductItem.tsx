@@ -21,6 +21,11 @@ export default function ProductItem({product}: {product: any}) {
           className="rounded-lg"
         />
       )}
+      {!product.node.images?.edges[0]?.node && (
+        <div
+          className={`w-full h-auto aspect-square animate-pulse bg-gray-100 opacity-50 rounded-lg`}
+        ></div>
+      )}
       <h4 className="text-2xl px-2 text-center mt-3 font-modak mb-0">
         {product.node.title}
       </h4>
